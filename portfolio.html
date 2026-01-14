@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Phong Dev - Portfolio</title>
+    <link rel="stylesheet" href="styles_modern.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+   <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index_new.html"><span class="logo-text">FUGA26</span></a>
+            </div>
+            <div class="nav-menu">
+                <a href="index_new.html" class="nav-link">Trang chủ</a>
+                <a href="about.html" class="nav-link">Về tôi</a>
+                <a href="skills.html" class="nav-link">Kỹ năng</a>
+                <a href="portfolio.html" class="nav-link">Dự án</a>
+                <a href="contact.html" class="nav-link contact-btn">Liên hệ</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section" style="padding-top: 120px; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Dự án của tôi</span>
+                <h2 class="section-title">Các dự án nổi bật</h2>
+                <p class="section-description">Đây là một số sản phẩm gần đây của tôi trong lĩnh vực phát triển web và thiết kế giao diện người dùng.</p>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="web">Web bán hàng</button>
+                <button class="filter-btn" data-filter="ui">Mobile APP</button>
+                <button class="filter-btn" data-filter="dev">GAME APP</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web dev">
+                    <div class="portfolio-image">
+                        <img src="https://picsum.photos/2600/550?random=1" alt="E-commerce Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Web bán quần áo</h3>
+                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Vuejs</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-link">Xem trang Web</a>
+                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-meta">
+                        <h3>Trang Web bán quấn áo</h3>
+                        <span>Web bán hàng</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ui">
+                    <div class="portfolio-image">
+                        <img src="https://picsum.photos/2600/550?random=2" alt="Mobile App UI">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                             <h3>Web bán quần áo</h3>
+                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Vuejs</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-link">Xem trang Web</a>
+                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-meta">
+                        <h3>Trang Web bán quấn áo</h3>
+                        <span>Web bán hàng</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://picsum.photos/2600/550?random=3" alt="Corporate Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                 <h3>Web bán quần áo</h3>
+                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Vuejs</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-link">Xem trang Web</a>
+                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-meta">
+                        <h3>Trang Web bán quấn áo</h3>
+                        <span>Web bán hàng</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="dev ui">
+                    <div class="portfolio-image">
+                        <img src="https://picsum.photos/2600/550?random=4" alt="Dashboard Interface">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Web bán quần áo</h3>
+                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Vuejs</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-link">Xem trang Web</a>
+                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-meta">
+                        <h3>Trang Web bán quấn áo</h3>
+                        <span>Web bán hàng</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="web dev">
+                    <div class="portfolio-image">
+                        <img src="https://picsum.photos/2600/550?random=5" alt="Restaurant Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                 <h3>Web bán quần áo</h3>
+                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Vuejs</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-link">Xem trang Web</a>
+                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-meta">
+                        <h3>Trang Web bán quấn áo</h3>
+                        <span>Web bán hàng</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="ui">
+                    <div class="portfolio-image">
+                        <img src="https://picsum.photos/2600/550?random=6" alt="Landing Page Design">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Web bán quần áo</h3>
+                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Vuejs</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn-link">Xem trang Web</a>
+                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-meta">
+                        <h3>Trang Web bán quấn áo</h3>
+                        <span>Web bán hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">người dùng nói gì</span>
+                <h2 class="section-title">lời nói tận đấy lòng!</h2>
+            </div>
+
+            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); position: relative;">
+                    <div class="stars" style="color: #fbbf24; margin-bottom: 1rem; font-size: 18px;">★★★★★</div>
+                    <p style="color: #4a5568; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"trang web thật là đẳng cấp tôi không thể tin nổi là anh phong đẹp trai có thể tạo ra nó"</p>
+                    <div class="testimonial-author" style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="author-avatar" style="width: 50px; height: 50px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;"><img src="images/42725836-adf9-4fc7-8764-9f671109ee3a-1624678195-502-width600height400.jpeg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="color: #1a202c; margin-bottom: 0.25rem;">Anh Mixi moi</h4>
+                            <span style="color: #718096; font-size: 14px;">sờ chim mơ,you to bè </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); position: relative;">
+                    <div class="stars" style="color: #fbbf24; margin-bottom: 1rem; font-size: 18px;">★★★★★</div>
+                    <p style="color: #4a5568; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"1 trang web tốt đúng là người bạn của tôi , tôi dự định mua lại trang web với giá 100 tỉ đô!  "</p>
+                    <div class="testimonial-author" style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="author-avatar" style="width: 50px; height: 50px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;"><img src="images/OIP.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="color: #1a202c; margin-bottom: 0.25rem;">Đỗ Nam Trung</h4>
+                            <span style="color: #718096; font-size: 14px;">Chủ tịch nước mẽo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); position: relative;">
+                    <div class="stars" style="color: #fbbf24; margin-bottom: 1rem; font-size: 18px;">★★★★★</div>
+                    <p style="color: #4a5568; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"Với trang Web này thì giá trị tài sản của tôi không thể mua được nó thật sự nó đã ở tầm vụ trụ rồi!"</p>
+                    <div class="testimonial-author" style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="author-avatar" style="width: 50px; height: 50px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;"><img src="images/3a4312046772175b.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="color: #1a202c; margin-bottom: 0.25rem;">Yi Long MA</h4>
+                            <span style="color: #718096; font-size: 14px;">Bán tên lửa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" style="padding: 6rem 0; background: white;">
+        <div class="container">
+            <div class="cta-content" style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <h2 style="color: #1a202c; margin-bottom: 1rem; font-size: 2.5rem;">Hãy cùng nhau tạo lên điều tuyệt vời</h2>
+                <p style="color: #718096; margin-bottom: 2.5rem; font-size: 18px;">bạn làm được tôi làm được,cùng hợp tác nhé!</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary" style="margin-right: 1rem;">Liên hệ với tôi</a>
+                    <a href="index_new.html" class="btn btn-secondary">Quay Lại trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo">
+                        <span class="logo-text">FUGA26</span>
+                    </div>
+                    <p>Tương lai có tốt không là do bạn,học lập trình là 1 quá trình cố lên nhé!</p>
+                    <div class="social-links">
+                        <a href="https://github.com/phongnmph62216" class="social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/phong-nguyen-minh-aa163b335/" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="http://x.com/phong_minh2601" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index_new.html">Trang chủ</a></li>
+                            <li><a href="about.html">Về Tôi</a></li>
+                            <li><a href="skills.html">Kỹ Năng</a></li>
+                            <li><a href="portfolio.html">Dự án</a></li>
+                            <li><a href="contact.html">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Thiết kế</a></li>
+                            <li><a href="#">thiết kế</a></li>
+                            <li><a href="#">thiết kế</a></li>
+                            <li><a href="#">thiết kế</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 phong đẹp trai(AKA phong học lập trình).</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
