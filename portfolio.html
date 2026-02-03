@@ -1,17 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minh Phong Dev - Portfolio</title>
+    <title>Minh Phong Dev - Portfolio & Dự Án</title>
     <link rel="stylesheet" href="styles_modern.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Portfolio Page Specific Styles */
+        .page-header {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b4e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header .section-label {
+            color: #818cf8;
+        }
+        
+        .page-header .section-title {
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .page-header .section-description {
+            color: #a5b4fc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            color: #94a3b8;
+        }
+        
+        .breadcrumb a {
+            color: #818cf8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #a5b4fc;
+        }
+        
+        /* Portfolio Stats */
+        .portfolio-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .portfolio-stat {
+            text-align: center;
+        }
+        
+        .portfolio-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .portfolio-stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        
+        /* Enhanced Filter Buttons */
+        .portfolio-filter-enhanced {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 16px;
+        }
+        
+        .filter-btn-enhanced {
+            padding: 12px 28px;
+            border: none;
+            background: white;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .filter-btn-enhanced i {
+            font-size: 1rem;
+        }
+        
+        .filter-btn-enhanced:hover {
+            background: #f1f5f9;
+            color: #4f46e5;
+        }
+        
+        .filter-btn-enhanced.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
+        }
+        
+        /* Enhanced Portfolio Cards */
+        .portfolio-grid-enhanced {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .portfolio-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .portfolio-card-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .portfolio-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-card-image img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-card-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-card-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            color: #4f46e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .portfolio-card:hover .portfolio-card-btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .portfolio-card:hover .portfolio-card-btn:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        
+        .portfolio-card-btn:hover {
+            background: #4f46e5;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .portfolio-card-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.95);
+            color: #4f46e5;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            z-index: 1;
+        }
+        
+        .portfolio-card-content {
+            padding: 1.75rem;
+        }
+        
+        .portfolio-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.75rem;
+        }
+        
+        .portfolio-card-description {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+        
+        .portfolio-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .portfolio-card-tag {
+            padding: 5px 12px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .portfolio-card-tag:hover {
+            background: #e0e7ff;
+            color: #4f46e5;
+        }
+        
+        .portfolio-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+        }
+        
+        .portfolio-card-date {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .portfolio-card-link {
+            color: #4f46e5;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+        
+        .portfolio-card-link:hover {
+            gap: 0.75rem;
+        }
+        
+        /* Featured Project */
+        .featured-project {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 5rem 0;
+        }
+        
+        .featured-project-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .featured-project-image {
+            height: 100%;
+            min-height: 450px;
+        }
+        
+        .featured-project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-project-content {
+            padding: 3rem;
+        }
+        
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .featured-badge i {
+            color: #f59e0b;
+        }
+        
+        .featured-project-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-project-description {
+            color: #64748b;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .featured-project-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .feature-item i {
+            color: #10b981;
+            font-size: 1.1rem;
+        }
+        
+        .featured-project-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 968px) {
+            .featured-project-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-project-image {
+                min-height: 300px;
+            }
+            
+            .portfolio-grid-enhanced {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .portfolio-stats {
+                gap: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-   <nav class="navbar">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html"><span class="logo-text">FUGA26</span></a>
@@ -20,7 +432,7 @@
                 <a href="index.html" class="nav-link">Trang chủ</a>
                 <a href="about.html" class="nav-link">Về tôi</a>
                 <a href="skills.html" class="nav-link">Kỹ năng</a>
-                <a href="portfolio.html" class="nav-link">Dự án</a>
+                <a href="portfolio.html" class="nav-link active">Dự án</a>
                 <a href="contact.html" class="nav-link contact-btn">Liên hệ</a>
             </div>
             <div class="hamburger">
@@ -31,223 +443,340 @@
         </div>
     </nav>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section" style="padding-top: 120px; background: white;">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label">Dự án của tôi</span>
-                <h2 class="section-title">Các dự án nổi bật</h2>
-                <p class="section-description">Đây là một số sản phẩm gần đây của tôi trong lĩnh vực phát triển web và thiết kế giao diện người dùng.</p>
+            <div class="section-header" style="text-align: center;">
+                <span class="section-label"><i class="fas fa-folder-open"></i> Portfolio</span>
+                <h2 class="section-title">Các Dự Án Của Tôi</h2>
+                <p class="section-description">Khám phá những sản phẩm và dự án tôi đã hoàn thành trong quá trình học tập và phát triển kỹ năng lập trình.</p>
             </div>
             
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">Tất cả</button>
-                <button class="filter-btn" data-filter="web">Web bán hàng</button>
-                <button class="filter-btn" data-filter="ui">Mobile APP</button>
-                <button class="filter-btn" data-filter="dev">GAME APP</button>
+            <div class="portfolio-stats">
+                <div class="portfolio-stat">
+                    <div class="portfolio-stat-number">10+</div>
+                    <div class="portfolio-stat-label">Dự án hoàn thành</div>
+                </div>
+                <div class="portfolio-stat">
+                    <div class="portfolio-stat-number">5+</div>
+                    <div class="portfolio-stat-label">Khách hàng hài lòng</div>
+                </div>
+                <div class="portfolio-stat">
+                    <div class="portfolio-stat-number">15+</div>
+                    <div class="portfolio-stat-label">Công nghệ sử dụng</div>
+                </div>
             </div>
             
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="web dev">
-                    <div class="portfolio-image">
-                        <img src="https://picsum.photos/2600/550?random=1" alt="E-commerce Website">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Web bán quần áo</h3>
-                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">HTML5</span>
-                                    <span class="tag">CSS3</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">Vuejs</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="#" class="btn-link">Xem trang Web</a>
-                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-meta">
-                        <h3>Trang Web bán quấn áo</h3>
-                        <span>Web bán hàng</span>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="ui">
-                    <div class="portfolio-image">
-                        <img src="https://picsum.photos/2600/550?random=2" alt="Mobile App UI">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                             <h3>Web bán quần áo</h3>
-                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">HTML5</span>
-                                    <span class="tag">CSS3</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">Vuejs</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="#" class="btn-link">Xem trang Web</a>
-                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-meta">
-                        <h3>Trang Web bán quấn áo</h3>
-                        <span>Web bán hàng</span>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="https://picsum.photos/2600/550?random=3" alt="Corporate Website">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                 <h3>Web bán quần áo</h3>
-                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">HTML5</span>
-                                    <span class="tag">CSS3</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">Vuejs</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="#" class="btn-link">Xem trang Web</a>
-                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-meta">
-                        <h3>Trang Web bán quấn áo</h3>
-                        <span>Web bán hàng</span>
-                    </div>
-                </div>
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <span>/</span>
+                <span>Dự án</span>
+            </nav>
+        </div>
+    </section>
 
-                <div class="portfolio-item" data-category="dev ui">
-                    <div class="portfolio-image">
-                        <img src="https://picsum.photos/2600/550?random=4" alt="Dashboard Interface">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Web bán quần áo</h3>
-                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">HTML5</span>
-                                    <span class="tag">CSS3</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">Vuejs</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="#" class="btn-link">Xem trang Web</a>
-                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-meta">
-                        <h3>Trang Web bán quấn áo</h3>
-                        <span>Web bán hàng</span>
-                    </div>
+    <!-- Featured Project -->
+    <section class="featured-project">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <span class="section-label"><i class="fas fa-star"></i> Dự án nổi bật</span>
+                <h2 class="section-title">Dự Án Tiêu Biểu</h2>
+            </div>
+            
+            <div class="featured-project-card">
+                <div class="featured-project-image">
+                    <img src="https://picsum.photos/800/600?random=10" alt="Featured Project">
                 </div>
-
-                <div class="portfolio-item" data-category="web dev">
-                    <div class="portfolio-image">
-                        <img src="https://picsum.photos/2600/550?random=5" alt="Restaurant Website">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                 <h3>Web bán quần áo</h3>
-                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">HTML5</span>
-                                    <span class="tag">CSS3</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">Vuejs</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="#" class="btn-link">Xem trang Web</a>
-                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
-                                </div>
-                            </div>
+                <div class="featured-project-content">
+                    <span class="featured-badge"><i class="fas fa-crown"></i> Dự án nổi bật</span>
+                    <h3 class="featured-project-title">Hệ Thống Quản Lý Bán Hàng</h3>
+                    <p class="featured-project-description">Một hệ thống quản lý bán hàng hoàn chỉnh với đầy đủ tính năng từ quản lý sản phẩm, đơn hàng, khách hàng đến báo cáo thống kê. Được xây dựng với Java Swing và MySQL.</p>
+                    
+                    <div class="featured-project-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quản lý sản phẩm</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quản lý đơn hàng</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Báo cáo thống kê</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>In hóa đơn</span>
                         </div>
                     </div>
-                    <div class="portfolio-meta">
-                        <h3>Trang Web bán quấn áo</h3>
-                        <span>Web bán hàng</span>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="ui">
-                    <div class="portfolio-image">
-                        <img src="https://picsum.photos/2600/550?random=6" alt="Landing Page Design">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Web bán quần áo</h3>
-                                <p>Trang Web bán quần áo nơi thỏa thích niềm đam mê mua quần áo</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">HTML5</span>
-                                    <span class="tag">CSS3</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">Vuejs</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="#" class="btn-link">Xem trang Web</a>
-                                    <a href="#" class="btn-link">Mô tả chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-meta">
-                        <h3>Trang Web bán quấn áo</h3>
-                        <span>Web bán hàng</span>
+                    
+                    <div class="featured-project-buttons">
+                        <a href="#" class="btn btn-primary"><i class="fas fa-eye"></i> Xem Demo</a>
+                        <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> Source Code</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section" style="padding: 5rem 0; background: white;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <span class="section-label"><i class="fas fa-th-large"></i> Tất cả dự án</span>
+                <h2 class="section-title">Khám Phá Thêm Dự Án</h2>
+            </div>
+            
+            <div class="portfolio-filter-enhanced">
+                <button class="filter-btn-enhanced active" data-filter="all">
+                    <i class="fas fa-border-all"></i> Tất cả
+                </button>
+                <button class="filter-btn-enhanced" data-filter="web">
+                    <i class="fas fa-shopping-cart"></i> Web bán hàng
+                </button>
+                <button class="filter-btn-enhanced" data-filter="ui">
+                    <i class="fas fa-mobile-alt"></i> Mobile App
+                </button>
+                <button class="filter-btn-enhanced" data-filter="dev">
+                    <i class="fas fa-gamepad"></i> Game App
+                </button>
+            </div>
+            
+            <div class="portfolio-grid-enhanced">
+                <!-- Project Card 1 -->
+                <div class="portfolio-card" data-category="web">
+                    <div class="portfolio-card-image">
+                        <span class="portfolio-card-category">Web bán hàng</span>
+                        <img src="https://picsum.photos/600/400?random=1" alt="E-commerce Website">
+                        <div class="portfolio-card-overlay">
+                            <a href="#" class="portfolio-card-btn" title="Xem Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="portfolio-card-btn" title="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3 class="portfolio-card-title">Website Bán Quần Áo</h3>
+                        <p class="portfolio-card-description">Trang web bán quần áo online với giao diện hiện đại, hỗ trợ thanh toán đa dạng.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-card-tag">HTML5</span>
+                            <span class="portfolio-card-tag">CSS3</span>
+                            <span class="portfolio-card-tag">JavaScript</span>
+                            <span class="portfolio-card-tag">Vue.js</span>
+                        </div>
+                        <div class="portfolio-card-footer">
+                            <span class="portfolio-card-date"><i class="far fa-calendar-alt"></i> Tháng 12, 2024</span>
+                            <a href="#" class="portfolio-card-link">Chi tiết <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="portfolio-card" data-category="ui">
+                    <div class="portfolio-card-image">
+                        <span class="portfolio-card-category">Mobile App</span>
+                        <img src="https://picsum.photos/600/400?random=2" alt="Mobile App">
+                        <div class="portfolio-card-overlay">
+                            <a href="#" class="portfolio-card-btn" title="Xem Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="portfolio-card-btn" title="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3 class="portfolio-card-title">Ứng Dụng Quản Lý Công Việc</h3>
+                        <p class="portfolio-card-description">App mobile giúp quản lý công việc hàng ngày với giao diện thân thiện người dùng.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-card-tag">React Native</span>
+                            <span class="portfolio-card-tag">Firebase</span>
+                            <span class="portfolio-card-tag">Redux</span>
+                        </div>
+                        <div class="portfolio-card-footer">
+                            <span class="portfolio-card-date"><i class="far fa-calendar-alt"></i> Tháng 11, 2024</span>
+                            <a href="#" class="portfolio-card-link">Chi tiết <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="portfolio-card" data-category="web">
+                    <div class="portfolio-card-image">
+                        <span class="portfolio-card-category">Web bán hàng</span>
+                        <img src="https://picsum.photos/600/400?random=3" alt="Food Delivery">
+                        <div class="portfolio-card-overlay">
+                            <a href="#" class="portfolio-card-btn" title="Xem Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="portfolio-card-btn" title="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3 class="portfolio-card-title">Website Đặt Đồ Ăn</h3>
+                        <p class="portfolio-card-description">Nền tảng đặt đồ ăn trực tuyến với tính năng theo dõi đơn hàng real-time.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-card-tag">Node.js</span>
+                            <span class="portfolio-card-tag">Express</span>
+                            <span class="portfolio-card-tag">MongoDB</span>
+                        </div>
+                        <div class="portfolio-card-footer">
+                            <span class="portfolio-card-date"><i class="far fa-calendar-alt"></i> Tháng 10, 2024</span>
+                            <a href="#" class="portfolio-card-link">Chi tiết <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="portfolio-card" data-category="dev">
+                    <div class="portfolio-card-image">
+                        <span class="portfolio-card-category">Game App</span>
+                        <img src="https://picsum.photos/600/400?random=4" alt="Game">
+                        <div class="portfolio-card-overlay">
+                            <a href="#" class="portfolio-card-btn" title="Xem Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="portfolio-card-btn" title="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3 class="portfolio-card-title">Game Xếp Hình 2D</h3>
+                        <p class="portfolio-card-description">Game xếp hình cổ điển với đồ họa 2D, nhiều level thử thách.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-card-tag">Unity</span>
+                            <span class="portfolio-card-tag">C#</span>
+                            <span class="portfolio-card-tag">2D Graphics</span>
+                        </div>
+                        <div class="portfolio-card-footer">
+                            <span class="portfolio-card-date"><i class="far fa-calendar-alt"></i> Tháng 9, 2024</span>
+                            <a href="#" class="portfolio-card-link">Chi tiết <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 5 -->
+                <div class="portfolio-card" data-category="ui">
+                    <div class="portfolio-card-image">
+                        <span class="portfolio-card-category">Mobile App</span>
+                        <img src="https://picsum.photos/600/400?random=5" alt="Fitness App">
+                        <div class="portfolio-card-overlay">
+                            <a href="#" class="portfolio-card-btn" title="Xem Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="portfolio-card-btn" title="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3 class="portfolio-card-title">Ứng Dụng Theo Dõi Sức Khỏe</h3>
+                        <p class="portfolio-card-description">App theo dõi hoạt động thể thao, calories và lịch trình tập luyện.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-card-tag">Flutter</span>
+                            <span class="portfolio-card-tag">Dart</span>
+                            <span class="portfolio-card-tag">SQLite</span>
+                        </div>
+                        <div class="portfolio-card-footer">
+                            <span class="portfolio-card-date"><i class="far fa-calendar-alt"></i> Tháng 8, 2024</span>
+                            <a href="#" class="portfolio-card-link">Chi tiết <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 6 -->
+                <div class="portfolio-card" data-category="dev">
+                    <div class="portfolio-card-image">
+                        <span class="portfolio-card-category">Game App</span>
+                        <img src="https://picsum.photos/600/400?random=6" alt="RPG Game">
+                        <div class="portfolio-card-overlay">
+                            <a href="#" class="portfolio-card-btn" title="Xem Demo">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="portfolio-card-btn" title="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-content">
+                        <h3 class="portfolio-card-title">Game RPG Phiêu Lưu</h3>
+                        <p class="portfolio-card-description">Game nhập vai với cốt truyện hấp dẫn và hệ thống chiến đấu turn-based.</p>
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-card-tag">Godot</span>
+                            <span class="portfolio-card-tag">GDScript</span>
+                            <span class="portfolio-card-tag">Pixel Art</span>
+                        </div>
+                        <div class="portfolio-card-footer">
+                            <span class="portfolio-card-date"><i class="far fa-calendar-alt"></i> Tháng 7, 2024</span>
+                            <a href="#" class="portfolio-card-link">Chi tiết <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section class="testimonials-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 6rem 0;">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label">người dùng nói gì</span>
-                <h2 class="section-title">lời nói tận đấy lòng!</h2>
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <span class="section-label"><i class="fas fa-quote-left"></i> Đánh giá</span>
+                <h2 class="section-title">Khách Hàng Nói Gì?</h2>
             </div>
 
-            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); position: relative;">
+            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); position: relative; transition: transform 0.3s ease;">
+                    <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; font-size: 3rem; color: #e0e7ff; opacity: 0.5;">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
                     <div class="stars" style="color: #fbbf24; margin-bottom: 1rem; font-size: 18px;">★★★★★</div>
-                    <p style="color: #4a5568; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"trang web thật là đẳng cấp tôi không thể tin nổi là anh phong đẹp trai có thể tạo ra nó"</p>
+                    <p style="color: #4a5568; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; font-size: 1.05rem;">"Trang web thật là đẳng cấp! Thiết kế hiện đại và chuyên nghiệp, tôi rất hài lòng với sản phẩm cuối cùng."</p>
                     <div class="testimonial-author" style="display: flex; align-items: center; gap: 1rem;">
-                        <div class="author-avatar" style="width: 50px; height: 50px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;"><img src="images/42725836-adf9-4fc7-8764-9f671109ee3a-1624678195-502-width600height400.jpeg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                        <div class="author-avatar" style="width: 55px; height: 55px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;">
+                            <img src="images/42725836-adf9-4fc7-8764-9f671109ee3a-1624678195-502-width600height400.jpeg" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div>
-                            <h4 style="color: #1a202c; margin-bottom: 0.25rem;">Anh Mixi moi</h4>
-                            <span style="color: #718096; font-size: 14px;">sờ chim mơ,you to bè </span>
+                            <h4 style="color: #1a202c; margin-bottom: 0.25rem; font-weight: 600;">Anh Mixi Moi</h4>
+                            <span style="color: #718096; font-size: 14px;">Streamer, YouTuber</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); position: relative;">
+                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); position: relative; transition: transform 0.3s ease;">
+                    <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; font-size: 3rem; color: #e0e7ff; opacity: 0.5;">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
                     <div class="stars" style="color: #fbbf24; margin-bottom: 1rem; font-size: 18px;">★★★★★</div>
-                    <p style="color: #4a5568; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"1 trang web tốt đúng là người bạn của tôi , tôi dự định mua lại trang web với giá 100 tỉ đô!  "</p>
+                    <p style="color: #4a5568; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; font-size: 1.05rem;">"Một trang web tuyệt vời! Tôi dự định hợp tác lâu dài để phát triển thêm nhiều dự án khác."</p>
                     <div class="testimonial-author" style="display: flex; align-items: center; gap: 1rem;">
-                        <div class="author-avatar" style="width: 50px; height: 50px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;"><img src="images/OIP.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                        <div class="author-avatar" style="width: 55px; height: 55px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;">
+                            <img src="images/OIP.jpg" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div>
-                            <h4 style="color: #1a202c; margin-bottom: 0.25rem;">Đỗ Nam Trung</h4>
-                            <span style="color: #718096; font-size: 14px;">Chủ tịch nước mẽo</span>
+                            <h4 style="color: #1a202c; margin-bottom: 0.25rem; font-weight: 600;">Đỗ Nam Trung</h4>
+                            <span style="color: #718096; font-size: 14px;">Doanh nhân, CEO</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); position: relative;">
+                <div class="testimonial-card" style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); position: relative; transition: transform 0.3s ease;">
+                    <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; font-size: 3rem; color: #e0e7ff; opacity: 0.5;">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
                     <div class="stars" style="color: #fbbf24; margin-bottom: 1rem; font-size: 18px;">★★★★★</div>
-                    <p style="color: #4a5568; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"Với trang Web này thì giá trị tài sản của tôi không thể mua được nó thật sự nó đã ở tầm vụ trụ rồi!"</p>
+                    <p style="color: #4a5568; line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; font-size: 1.05rem;">"Với trang web này thì giá trị không thể đo lường được! Thật sự đã ở tầm vũ trụ rồi!"</p>
                     <div class="testimonial-author" style="display: flex; align-items: center; gap: 1rem;">
-                        <div class="author-avatar" style="width: 50px; height: 50px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;"><img src="images/3a4312046772175b.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                        <div class="author-avatar" style="width: 55px; height: 55px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; overflow: hidden;">
+                            <img src="images/3a4312046772175b.jpg" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div>
-                            <h4 style="color: #1a202c; margin-bottom: 0.25rem;">Yi Long MA</h4>
-                            <span style="color: #718096; font-size: 14px;">Bán tên lửa</span>
+                            <h4 style="color: #1a202c; margin-bottom: 0.25rem; font-weight: 600;">Yi Long MA</h4>
+                            <span style="color: #718096; font-size: 14px;">Entrepreneur, SpaceX</span>
                         </div>
                     </div>
                 </div>
@@ -256,79 +785,151 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section" style="padding: 6rem 0; background: white;">
+    <section class="cta-section">
         <div class="container">
-            <div class="cta-content" style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: #1a202c; margin-bottom: 1rem; font-size: 2.5rem;">Hãy cùng nhau tạo lên điều tuyệt vời</h2>
-                <p style="color: #718096; margin-bottom: 2.5rem; font-size: 18px;">bạn làm được tôi làm được,cùng hợp tác nhé!</p>
-                <div class="hero-buttons">
-                    <a href="contact.html" class="btn btn-primary" style="margin-right: 1rem;">Liên hệ với tôi</a>
-                    <a href="index.html" class="btn btn-secondary">Quay Lại trang chủ</a>
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2><i class="fas fa-rocket"></i> Bạn có dự án cần thực hiện?</h2>
+                    <p>Hãy liên hệ với tôi để được tư vấn miễn phí. Cùng nhau tạo nên những sản phẩm tuyệt vời!</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Liên hệ ngay</a>
+                    <a href="index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Trang chủ</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-   <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
                     <div class="logo">
                         <span class="logo-text">FUGA26</span>
                     </div>
-                    <p>Tương lai có tốt không là do bạn,học lập trình là 1 quá trình cố lên nhé!</p>
+                    <p>Tương lai có tốt không là do bạn. Học lập trình là một quá trình, cố lên nhé!</p>
                     <div class="social-links">
                         <a href="https://github.com/phongnmph62216" class="social-link" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
+                            <i class="fab fa-github"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/phong-nguyen-minh-aa163b335/" class="social-link" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="http://x.com/phong_minh2601" class="social-link" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/phong.nguyenminh.733450" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>Navigation</h4>
+                        <h4>Điều hướng</h4>
                         <ul>
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="about.html">Về Tôi</a></li>
-                            <li><a href="skills.html">Kỹ Năng</a></li>
-                            <li><a href="portfolio.html">Dự án</a></li>
-                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Trang chủ</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> Về Tôi</a></li>
+                            <li><a href="skills.html"><i class="fas fa-chevron-right"></i> Kỹ Năng</a></li>
+                            <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> Dự án</a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Liên hệ</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4>Services</h4>
+                        <h4>Dịch vụ</h4>
                         <ul>
-                            <li><a href="#">Thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Thiết kế Web</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Phát triển App</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Tư vấn IT</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Liên hệ</h4>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
+                            <li><i class="fas fa-envelope"></i> phongnm.62216@gmail.com</li>
+                            <li><i class="fas fa-phone"></i> +84 123 456 789</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 phong đẹp trai(AKA phong học lập trình).</p>
+                <p>&copy; 2025 FUGA26 - Minh Phong Dev. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
     <script src="script.js"></script>
-</body>
+    <script>
+        // Portfolio Filter
+        const filterBtns = document.querySelectorAll('.filter-btn-enhanced');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                portfolioCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+        
+        portfolioCards.forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </html>
 

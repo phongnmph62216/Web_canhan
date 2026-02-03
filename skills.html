@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minh Phong Dev - Skills</title>
+    <title>Kỹ Năng - Minh Phong Developer | FUGA26</title>
+    <meta name="description" content="Khám phá các kỹ năng và công nghệ mà Minh Phong sử dụng trong phát triển web.">
     <link rel="stylesheet" href="styles_modern.css">
     <link rel="stylesheet" href="chatbot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-
-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -22,7 +22,7 @@ awesome/6.0.0-beta3/css/all.min.css">
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Trang chủ</a>
                 <a href="about.html" class="nav-link">Về tôi</a>
-                <a href="skills.html" class="nav-link">Kỹ năng</a>
+                <a href="skills.html" class="nav-link active">Kỹ năng</a>
                 <a href="portfolio.html" class="nav-link">Dự án</a>
                 <a href="contact.html" class="nav-link contact-btn">Liên hệ</a>
             </div>
@@ -34,18 +34,34 @@ awesome/6.0.0-beta3/css/all.min.css">
         </div>
     </nav>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section" style="padding-top: 120px;">
+    <!-- Page Header -->
+    <section class="page-header" style="padding-top: 120px; padding-bottom: 60px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
         <div class="container">
-            <div class="section-header">
+            <div class="page-header-content" style="text-align: center;">
                 <span class="section-label">Chuyên môn của tôi</span>
-                <h2 class="section-title">Kỹ năng & Công nghệ</h2>
-                <p class="section-description">Tôi luôn học hỏi những công nghệ mới và trau dồi kỹ năng để có một công việc tốt.</p>
+                <h1 class="section-title" style="font-size: 3rem;">Kỹ Năng & Công Nghệ</h1>
+                <p class="section-description">Tôi luôn học hỏi những công nghệ mới và trau dồi kỹ năng để phát triển bản thân</p>
+                <nav class="breadcrumb" style="margin-top: 2rem;">
+                    <a href="index.html" style="color: #4f46e5; text-decoration: none;">Trang chủ</a>
+                    <span style="margin: 0 0.5rem; color: #718096;">/</span>
+                    <span style="color: #718096;">Kỹ năng</span>
+                </nav>
             </div>
-            
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section" style="padding: 80px 0;">
+        <div class="container">
             <div class="skills-content">
-                <div class="skills-category">
-                    <h3>Frontend Development</h3>
+                <!-- Frontend Development -->
+                <div class="skills-category" style="margin-bottom: 4rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-laptop-code" style="color: white; font-size: 20px;"></i>
+                        </div>
+                        <h3 style="color: #1a202c; margin: 0;">Frontend Development</h3>
+                    </div>
                     <div class="tech-grid">
                         <div class="tech-item">
                             <div class="tech-icon html"><i class="fa-brands fa-html5"></i></div>
@@ -53,7 +69,7 @@ awesome/6.0.0-beta3/css/all.min.css">
                             <div class="tech-level">
                                 <div class="level-bar" data-level="90"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">thiết kế khung giao diện bằng HTML5</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Thiết kế cấu trúc semantic và accessibility</p>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon css"><i class="fa-brands fa-css3-alt"></i></div>
@@ -61,7 +77,7 @@ awesome/6.0.0-beta3/css/all.min.css">
                             <div class="tech-level">
                                 <div class="level-bar" data-level="85"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">thiết kế màu sắc cho web đẹp hơn bố cục rõ ràng</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Flexbox, Grid, Animation & Responsive</p>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon js">JS</div>
@@ -69,7 +85,7 @@ awesome/6.0.0-beta3/css/all.min.css">
                             <div class="tech-level">
                                 <div class="level-bar" data-level="80"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">ES6+, thao tác DOM và lập trình bất đồng bộ</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">ES6+, DOM, Async/Await</p>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon sass"><i class="fa-brands fa-bootstrap"></i></div>
@@ -77,15 +93,15 @@ awesome/6.0.0-beta3/css/all.min.css">
                             <div class="tech-level">
                                 <div class="level-bar" data-level="75"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">là thư viện giúp người lập trình css dễ dàng hơn viết trên class</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">UI Components & Grid System</p>
                         </div>
                          <div class="tech-item">
                             <div class="tech-icon node"><i class="fa-brands fa-vuejs"></i></div>
-                            <span class="tech-name">Vuejs</span>
+                            <span class="tech-name">Vue.js</span>
                             <div class="tech-level">
                                 <div class="level-bar" data-level="80"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">framework JavaScript được sử dụng để xây dựng giao diện người dùng</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Composition API, Vuex, Vue Router</p>
                         </div>
                          <div class="tech-item">
                             <div class="tech-icon react"><i class="fa-brands fa-react"></i></div>
@@ -93,37 +109,43 @@ awesome/6.0.0-beta3/css/all.min.css">
                             <div class="tech-level">
                                 <div class="level-bar" data-level="20"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">framework JavaScript được sử dụng để xây dựng giao diện người dùng</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Đang học - Hooks, Components</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="skills-category">
-                    <h3>Backend Development</h3>
+                <!-- Backend Development -->
+                <div class="skills-category" style="margin-bottom: 4rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-server" style="color: white; font-size: 20px;"></i>
+                        </div>
+                        <h3 style="color: #1a202c; margin: 0;">Backend Development</h3>
+                    </div>
                     <div class="tech-grid">
                         <div class="tech-item">
                             <div class="tech-icon react"><i class="fa-solid fa-database"></i></div>
-                            <span class="tech-name">My SQL</span>
+                            <span class="tech-name">MySQL</span>
                             <div class="tech-level">
                                 <div class="level-bar" data-level="90"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Nơi lưu trữ Database,thực hiện nhưng câu truy vấn</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Query, Stored Procedures, Optimization</p>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon html"><i class="fa-solid fa-database"></i></i></div>
+                            <div class="tech-icon html"><i class="fa-solid fa-database"></i></div>
                             <span class="tech-name">SQL Server</span>
                             <div class="tech-level">
                                 <div class="level-bar" data-level="90"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Nơi lưu trữ Database,thực hiện nhưng câu truy vấn</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">T-SQL, Database Design</p>
                         </div>
-                          <div class="tech-item">
-                            <div class="tech-icon node"><i class="fa-brands fa-java"></i></i></div>
+                        <div class="tech-item">
+                            <div class="tech-icon node"><i class="fa-brands fa-java"></i></div>
                             <span class="tech-name">Java Spring Boot</span>
                             <div class="tech-level">
                                 <div class="level-bar" data-level="30"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Server-side JavaScript and API development</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">REST API, JPA, Security</p>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon ts">TS</div>
@@ -131,7 +153,7 @@ awesome/6.0.0-beta3/css/all.min.css">
                             <div class="tech-level">
                                 <div class="level-bar" data-level="20"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Type safety and advanced patterns</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Type safety, Interfaces</p>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon node"><i class="fa-brands fa-node-js"></i></div>
@@ -139,7 +161,7 @@ awesome/6.0.0-beta3/css/all.min.css">
                             <div class="tech-level">
                                 <div class="level-bar" data-level="30"></div>
                             </div>
-                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Server-side JavaScript and API development</p>
+                            <p style="font-size: 14px; color: #718096; margin-top: 0.5rem;">Express.js, API Development</p>
                         </div>
                     </div>
                 </div>
@@ -147,54 +169,176 @@ awesome/6.0.0-beta3/css/all.min.css">
 
             <!-- Additional Skills -->
             <div style="margin-top: 4rem;">
-                <h3 style="text-align: center; margin-bottom: 2rem; color: #1a202c;">Các kỹ năng và công cụ khác</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div class="skill-category-card">
-                        <h4 style="color: #4f46e5; margin-bottom: 1rem;">Design Tools</h4>
-                        <ul style="list-style: none; color: #4a5568;">
-                            <li style="padding: 0.5rem 0;">• Figma</li>
-                            <li style="padding: 0.5rem 0;">• Photoshop</li>
-                            <li style="padding: 0.5rem 0;">• Illustrator</li>
+                <div class="section-header">
+                    <span class="section-label">Công cụ & Kỹ năng mềm</span>
+                    <h2 class="section-title">Các Kỹ Năng Khác</h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div class="skill-category-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 40px rgba(79,70,229,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(124,58,237,0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-paint-brush" style="color: #4f46e5; font-size: 18px;"></i>
+                            </div>
+                            <h4 style="color: #1a202c; margin: 0;">Design Tools</h4>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <i class="fab fa-figma" style="color: #4f46e5; width: 20px;"></i>
+                                <span style="color: #4a5568;">Figma</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <i class="fas fa-image" style="color: #7c3aed; width: 20px;"></i>
+                                <span style="color: #4a5568;">Photoshop</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0;">
+                                <i class="fas fa-pen-nib" style="color: #ec4899; width: 20px;"></i>
+                                <span style="color: #4a5568;">Illustrator</span>
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="skill-category-card">
-                        <h4 style="color: #4f46e5; margin-bottom: 1rem;">Development Tools</h4>
-                        <ul style="list-style: none; color: #4a5568;">
-                            <li style="padding: 0.5rem 0;">• Visual Studio Code</li>
-                            <li style="padding: 0.5rem 0;">• Intellij IDEA</li>
-                            <li style="padding: 0.5rem 0;">• Git & GitHub</li>
-                            <li style="padding: 0.5rem 0;">• Chrome DevTools</li>
+                    <div class="skill-category-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 40px rgba(79,70,229,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-tools" style="color: #10b981; font-size: 18px;"></i>
+                            </div>
+                            <h4 style="color: #1a202c; margin: 0;">Development Tools</h4>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <i class="fas fa-code" style="color: #4f46e5; width: 20px;"></i>
+                                <span style="color: #4a5568;">Visual Studio Code</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <i class="fas fa-laptop-code" style="color: #10b981; width: 20px;"></i>
+                                <span style="color: #4a5568;">IntelliJ IDEA</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <i class="fab fa-git-alt" style="color: #f97316; width: 20px;"></i>
+                                <span style="color: #4a5568;">Git & GitHub</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0;">
+                                <i class="fab fa-chrome" style="color: #fbbf24; width: 20px;"></i>
+                                <span style="color: #4a5568;">Chrome DevTools</span>
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="skill-category-card">
-                        <h4 style="color: #4f46e5; margin-bottom: 1rem;">Languages</h4>
-                        <ul style="list-style: none; color: #4a5568;">
-                            <li style="padding: 0.5rem 0;">• Tiếng việt</li>
-                            <li style="padding: 0.5rem 0;">• English (đang học)</li>
+                    <div class="skill-category-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 40px rgba(79,70,229,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, rgba(236,72,153,0.1), rgba(219,39,119,0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-language" style="color: #ec4899; font-size: 18px;"></i>
+                            </div>
+                            <h4 style="color: #1a202c; margin: 0;">Ngôn ngữ</h4>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <span style="color: #4a5568;">🇻🇳 Tiếng Việt</span>
+                                <span style="background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 12px;">Bản ngữ</span>
+                            </li>
+                            <li style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0;">
+                                <span style="color: #4a5568;">🇬🇧 English</span>
+                                <span style="background: #fbbf24; color: #1a202c; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 12px;">Đang học</span>
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="skill-category-card">
-                        <h4 style="color: #4f46e5; margin-bottom: 1rem;">Soft Skills</h4>
-                        <ul style="list-style: none; color: #4a5568;">
-                            <li style="padding: 0.5rem 0;">• Giải quyết vấn đề</li>
-                            <li style="padding: 0.5rem 0;">• Hợp tác nhóm</li>
-                            <li style="padding: 0.5rem 0;">• Quản lí thời gian</li>
-                            <li style="padding: 0.5rem 0;">• Giao tiếp</li>
+                    <div class="skill-category-card" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 40px rgba(79,70,229,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, rgba(251,191,36,0.1), rgba(245,158,11,0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-users" style="color: #f59e0b; font-size: 18px;"></i>
+                            </div>
+                            <h4 style="color: #1a202c; margin: 0;">Kỹ năng mềm</h4>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <i class="fas fa-lightbulb" style="color: #fbbf24; width: 20px;"></i>
+                                <span style="color: #4a5568;">Giải quyết vấn đề</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <i class="fas fa-handshake" style="color: #4f46e5; width: 20px;"></i>
+                                <span style="color: #4a5568;">Hợp tác nhóm</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9;">
+                                <i class="fas fa-clock" style="color: #10b981; width: 20px;"></i>
+                                <span style="color: #4a5568;">Quản lý thời gian</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0;">
+                                <i class="fas fa-comments" style="color: #ec4899; width: 20px;"></i>
+                                <span style="color: #4a5568;">Giao tiếp hiệu quả</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- CTA Section -->
-            <div class="cta-section" style="margin-top: 4rem; text-align: center; padding: 3rem; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 16px;">
-                <h3 style="color: #1a202c; margin-bottom: 1rem;">Bạn muốn hợp tác chứ?</h3>
-                <p style="color: #718096; margin-bottom: 2rem;">Hãy thảo luận với nhau về nhưng kĩ năng</p>
-                <div class="hero-buttons">
-                    <a href="contact.html" class="btn btn-primary">Liên hệ với tôi</a>
-                    <a href="portfolio.html" class="btn btn-secondary">Dự án của tôi</a>
+            <!-- Learning Roadmap -->
+            <div style="margin-top: 5rem;">
+                <div class="section-header">
+                    <span class="section-label">Mục tiêu</span>
+                    <h2 class="section-title">Lộ Trình Học Tập</h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;">
+                    <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); padding: 2rem; border-radius: 16px; color: white; text-align: center;">
+                        <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <i class="fas fa-check-circle" style="font-size: 24px;"></i>
+                        </div>
+                        <h3 style="margin-bottom: 1rem;">Đang làm</h3>
+                        <ul style="list-style: none; padding: 0; text-align: left; font-size: 14px;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="margin-right: 0.5rem;"></i> HTML5 & CSS3</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="margin-right: 0.5rem;"></i> JavaScript ES6+</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="margin-right: 0.5rem;"></i> Vue.js Framework</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="margin-right: 0.5rem;"></i> MySQL & SQL Server</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; border: 2px solid #4f46e5; padding: 2rem; border-radius: 16px; text-align: center;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(124,58,237,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <i class="fas fa-spinner" style="font-size: 24px; color: #4f46e5;"></i>
+                        </div>
+                        <h3 style="color: #1a202c; margin-bottom: 1rem;">Đang học</h3>
+                        <ul style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #4a5568;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-circle" style="margin-right: 0.5rem; font-size: 8px; color: #fbbf24;"></i> React.js</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-circle" style="margin-right: 0.5rem; font-size: 8px; color: #fbbf24;"></i> TypeScript</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-circle" style="margin-right: 0.5rem; font-size: 8px; color: #fbbf24;"></i> Node.js & Express</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-circle" style="margin-right: 0.5rem; font-size: 8px; color: #fbbf24;"></i> Java Spring Boot</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 2rem; border-radius: 16px; text-align: center;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(107,114,128,0.1), rgba(75,85,99,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                            <i class="fas fa-road" style="font-size: 24px; color: #6b7280;"></i>
+                        </div>
+                        <h3 style="color: #1a202c; margin-bottom: 1rem;">Mục tiêu</h3>
+                        <ul style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #6b7280;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-arrow-right" style="margin-right: 0.5rem; font-size: 10px;"></i> Next.js</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-arrow-right" style="margin-right: 0.5rem; font-size: 10px;"></i> Docker & DevOps</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-arrow-right" style="margin-right: 0.5rem; font-size: 10px;"></i> Cloud Services (AWS)</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-arrow-right" style="margin-right: 0.5rem; font-size: 10px;"></i> Mobile Development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Muốn thảo luận về công nghệ?</h2>
+                    <p>Tôi luôn sẵn sàng trao đổi về các công nghệ mới và cơ hội hợp tác!</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-light">
+                        <i class="fas fa-envelope"></i> Liên hệ ngay
+                    </a>
+                    <a href="portfolio.html" class="btn btn-outline-light">
+                        <i class="fas fa-briefcase"></i> Xem dự án
+                    </a>
                 </div>
             </div>
         </div>
@@ -208,7 +352,7 @@ awesome/6.0.0-beta3/css/all.min.css">
                     <div class="logo">
                         <span class="logo-text">FUGA26</span>
                     </div>
-                    <p>Tương lai có tốt không là do bạn,học lập trình là 1 quá trình cố lên nhé!</p>
+                    <p>Đam mê công nghệ, tạo ra những trải nghiệm web tuyệt vời. Hãy cùng nhau xây dựng tương lai số!</p>
                     <div class="social-links">
                         <a href="https://github.com/phongnmph62216" class="social-link" aria-label="GitHub">
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -230,36 +374,84 @@ awesome/6.0.0-beta3/css/all.min.css">
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>Navigation</h4>
+                        <h4>Điều hướng</h4>
                         <ul>
                             <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="about.html">Về Tôi</a></li>
-                            <li><a href="skills.html">Kỹ Năng</a></li>
+                            <li><a href="about.html">Về tôi</a></li>
+                            <li><a href="skills.html">Kỹ năng</a></li>
                             <li><a href="portfolio.html">Dự án</a></li>
                             <li><a href="contact.html">Liên hệ</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4>Services</h4>
+                        <h4>Dịch vụ</h4>
                         <ul>
-                            <li><a href="#">Thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
+                            <li><a href="#">Thiết kế UI/UX</a></li>
+                            <li><a href="#">Phát triển Web</a></li>
+                            <li><a href="#">Responsive Design</a></li>
+                            <li><a href="#">Tối ưu SEO</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Liên hệ</h4>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> minhphong26012006@gmail.com</li>
+                            <li><i class="fas fa-phone"></i> 0364 820 726</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 phong đẹp trai(AKA phong học lập trình).</p>
+                <p>&copy; 2024 FUGA26 - Minh Phong. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="#">Điều khoản sử dụng</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
     <script src="chatbot.js"></script>
+    <script>
+        // Back to Top
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animate skill bars on scroll
+        const techItems = document.querySelectorAll('.tech-item');
+        
+        const animateOnScroll = () => {
+            techItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    item.classList.add('animate-in');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+    </script>
 </body>
 </html>

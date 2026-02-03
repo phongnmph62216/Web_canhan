@@ -1,14 +1,468 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minh Phong Dev - Contact</title>
+    <title>Minh Phong Dev - Liên Hệ</title>
     <link rel="stylesheet" href="styles_modern.css">
     <link rel="stylesheet" href="chatbot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .page-header {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b4e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header .section-label {
+            color: #818cf8;
+        }
+        
+        .page-header .section-title {
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .page-header .section-description {
+            color: #a5b4fc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            color: #94a3b8;
+        }
+        
+        .breadcrumb a {
+            color: #818cf8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #a5b4fc;
+        }
+        
+        /* Contact Info Cards */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: -60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .contact-card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+            color: #4f46e5;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-card-icon {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .contact-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-card-text {
+            color: #4f46e5;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-card-note {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+        
+        /* Enhanced Contact Section */
+        .contact-section-enhanced {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info-enhanced {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 3rem;
+            border-radius: 24px;
+        }
+        
+        .contact-info-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info-text {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 12px 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50px;
+            margin-bottom: 2rem;
+        }
+        
+        .availability-dot {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .availability-text {
+            color: #059669;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .response-time {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .response-time-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .response-time-text h4 {
+            color: #1a202c;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .response-time-text p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .social-section {
+            margin-top: 2rem;
+        }
+        
+        .social-section h4 {
+            color: #1a202c;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links-enhanced {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link-enhanced {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 1.25rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .social-link-enhanced:hover {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Enhanced Form */
+        .contact-form-enhanced {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-subtitle {
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group-enhanced {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group-enhanced label {
+            display: block;
+            color: #374151;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group-enhanced label i {
+            margin-right: 0.5rem;
+            color: #4f46e5;
+        }
+        
+        .form-group-enhanced input,
+        .form-group-enhanced select,
+        .form-group-enhanced textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+        
+        .form-group-enhanced input:focus,
+        .form-group-enhanced select:focus,
+        .form-group-enhanced textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
+        
+        .form-group-enhanced textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #4f46e5;
+            margin-top: 2px;
+        }
+        
+        .checkbox-group label {
+            color: #64748b;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+        }
+        
+        .form-note {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        /* FAQ Section Enhanced */
+        .faq-section-enhanced {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+        
+        .faq-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .faq-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left-color: #4f46e5;
+        }
+        
+        .faq-card-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4f46e5;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-card h3 {
+            color: #1a202c;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        
+        .faq-card p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .contact-cards {
+                margin-top: -40px;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -22,7 +476,7 @@
                 <a href="about.html" class="nav-link">Về tôi</a>
                 <a href="skills.html" class="nav-link">Kỹ năng</a>
                 <a href="portfolio.html" class="nav-link">Dự án</a>
-                <a href="contact.html" class="nav-link contact-btn">Liên hệ</a>
+                <a href="contact.html" class="nav-link contact-btn active">Liên hệ</a>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -32,178 +486,253 @@
         </div>
     </nav>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section" style="padding-top: 120px;">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label">Hay liên hệ với tôi</span>
-                <h2 class="section-title">Hay cùng nhau hợp tác</h2>
-                <p class="section-description">Tôi luôn quan tâm đến những cơ hội mới và các dự án thú vị. Hãy cùng thảo luận xem chúng ta có thể hiện thực hóa ý tưởng của bạn như thế nào.</p>
+            <div class="section-header" style="text-align: center;">
+                <span class="section-label"><i class="fas fa-envelope"></i> Liên hệ</span>
+                <h2 class="section-title">Hãy Cùng Nhau Hợp Tác!</h2>
+                <p class="section-description">Tôi luôn sẵn sàng lắng nghe ý tưởng của bạn. Hãy liên hệ để cùng nhau tạo nên những sản phẩm tuyệt vời.</p>
             </div>
             
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-intro" style="margin-bottom: 3rem;">
-                        <h3 style="color: #1a202c; margin-bottom: 1rem;">Bạn đã sẵn sàng bắt đầu dự án của mình chưa?</h3>
-                        <p style="color: #718096; line-height: 1.7; margin-bottom: 2rem;">Dù bạn cần một trang web mới, thiết kế lại trang web, hay chỉ muốn thảo luận về ý tưởng của mình, tôi luôn sẵn sàng hỗ trợ. Hãy cùng nhau tạo nên điều tuyệt vời!</p>
-                        
-                        <div class="availability-status" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;">
-                            <div style="width: 12px; height: 12px; background: #48bb78; border-radius: 50%; animation: pulse 2s infinite;"></div>
-                            <span style="color: #48bb78; font-weight: 500;">Sẵn sàng nhận các dự án mới</span>
-                        </div>
-                    </div>
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <span>/</span>
+                <span>Liên hệ</span>
+            </nav>
+        </div>
+    </section>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
+    <!-- Contact Info Cards -->
+    <section style="padding: 0 0 3rem; background: white;">
+        <div class="container">
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-card-title">Email</h3>
+                    <p class="contact-card-text">minhphong26012006@gmail.com</p>
+                    <span class="contact-card-note">Trả lời trong vòng 24 giờ</span>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="contact-card-title">Điện thoại</h3>
+                    <p class="contact-card-text">0364 820 726</p>
+                    <span class="contact-card-note">Thứ 2 - Thứ 6, 9:00 - 18:00</span>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="contact-card-title">Địa chỉ</h3>
+                    <p class="contact-card-text">Phượng Dực, Hà Nội</p>
+                    <span class="contact-card-note">Làm việc từ xa toàn cầu</span>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="contact-card-title">Giờ làm việc</h3>
+                    <p class="contact-card-text">9:00 - 21:00</p>
+                    <span class="contact-card-note">Linh hoạt theo dự án</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section-enhanced">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info-enhanced">
+                    <h3 class="contact-info-title">Bạn đã sẵn sàng bắt đầu dự án?</h3>
+                    <p class="contact-info-text">Dù bạn cần một trang web mới, thiết kế lại giao diện, hay chỉ muốn thảo luận về ý tưởng của mình - tôi luôn sẵn sàng hỗ trợ. Hãy cùng nhau tạo nên điều tuyệt vời!</p>
+                    
+                    <div class="availability-badge">
+                        <div class="availability-dot"></div>
+                        <span class="availability-text">Sẵn sàng nhận dự án mới</span>
+                    </div>
+                    
+                    <div class="response-time">
+                        <div class="response-time-icon">
+                            <i class="fas fa-bolt"></i>
                         </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>minhphong26012006@gmail.com</p>
-                            <small style="color: #718096;">Tôi thường trả lời trong vòng 24 giờ.</small>
+                        <div class="response-time-text">
+                            <h4>Phản hồi nhanh chóng</h4>
+                            <p>Thường trả lời trong vòng 2-4 giờ</p>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
+                    <div class="response-time">
+                        <div class="response-time-icon">
+                            <i class="fas fa-handshake"></i>
                         </div>
-                        <div class="contact-details">
-                            <h3>Điện thoại</h3>
-                            <p>0364820726</p>
-                            <small style="color: #718096;">Có sẵn từ Thứ Hai đến Thứ Sáu, 9 giờ sáng - 6 giờ chiều</small>
+                        <div class="response-time-text">
+                            <h4>Tư vấn miễn phí</h4>
+                            <p>Hỗ trợ báo giá và tư vấn dự án</p>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Địa chỉ</h3>
-                            <p>Phượng Dực,HÀ NỘI</p>
-                            <small style="color: #718096;">Sẵn sàng làm việc từ xa trên toàn thế giới</small>
-                        </div>
-                    </div>
-
-                    <div class="social-connect" style="margin-top: 3rem;">
-                        <h3 style="color: #1a202c; margin-bottom: 1rem;">Kết nối qua các Hình thức</h3>
-                        <div class="social-links" style="justify-content: flex-start;">
-                            <a href="https://github.com/phongnmph62216" class="social-link" aria-label="GitHub">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
+                    <div class="social-section">
+                        <h4><i class="fas fa-share-alt"></i> Kết nối với tôi</h4>
+                        <div class="social-links-enhanced">
+                            <a href="https://github.com/phongnmph62216" class="social-link-enhanced" title="GitHub">
+                                <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/phong-nguyen-minh-aa163b335/" class="social-link" aria-label="LinkedIn">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
+                            <a href="https://www.linkedin.com/in/phong-nguyen-minh-aa163b335/" class="social-link-enhanced" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="http://x.com/phong_minh2601" class="social-link" aria-label="Twitter">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                                </svg>
+                            <a href="http://x.com/phong_minh2601" class="social-link-enhanced" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.facebook.com/phong.nguyenminh.733450" class="social-link-enhanced" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="mailto:minhphong26012006@gmail.com" class="social-link-enhanced" title="Gmail">
+                                <i class="fas fa-envelope"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <form class="contact-form" action="https://formsubmit.co/minhphong26012006@gmail.com" method="POST">
-                    <!-- Các trường ẩn cho FormSubmit với tên người gửi tùy chỉnh -->
-                    <input type="hidden" name="_subject" value="🚀 Dự án mới từ Website Portfolio - Minh Phong Dev">
-                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/contact.html?success=1">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_cc" value="minhphong26012006@gmail.com">
-                    <input type="hidden" name="_autoresponse" value="Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong vòng 24 giờ. - Minh Phong Developer">
-                    <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div class="form-group">
-                            <input type="text" id="name" name="Họ và tên" placeholder="Nhập tên bạn" required>
-                            <label for="name">Tên</label>
+                <!-- Contact Form -->
+                <div class="contact-form-enhanced">
+                    <h3 class="form-title"><i class="fas fa-paper-plane"></i> Gửi tin nhắn</h3>
+                    <p class="form-subtitle">Điền thông tin bên dưới, tôi sẽ liên hệ lại sớm nhất!</p>
+                    
+                    <form action="https://formsubmit.co/minhphong26012006@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="🚀 Dự án mới từ Website Portfolio - Minh Phong Dev">
+                        <input type="hidden" name="_next" value="http://127.0.0.1:5500/contact.html?success=1">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_autoresponse" value="Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong vòng 24 giờ. - Minh Phong Developer">
+                        
+                        <div class="form-row">
+                            <div class="form-group-enhanced">
+                                <label for="name"><i class="fas fa-user"></i> Họ và tên</label>
+                                <input type="text" id="name" name="Họ và tên" placeholder="Nhập họ tên của bạn" required>
+                            </div>
+                            
+                            <div class="form-group-enhanced">
+                                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" id="email" name="Địa chỉ Email" placeholder="email@example.com" required>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <input type="email" id="email" name="Địa chỉ Email" placeholder="Nhập Email của bạn" required>
-                            <label for="email">Email</label>
+                        <div class="form-row">
+                            <div class="form-group-enhanced">
+                                <label for="phone"><i class="fas fa-phone"></i> Số điện thoại</label>
+                                <input type="tel" id="phone" name="Số điện thoại" placeholder="0xxx xxx xxx">
+                            </div>
+                            
+                            <div class="form-group-enhanced">
+                                <label for="project-type"><i class="fas fa-folder"></i> Loại dự án</label>
+                                <select id="project-type" name="Loại dự án" required>
+                                    <option value="">-- Chọn loại dự án --</option>
+                                    <option value="web">Dự án Web</option>
+                                    <option value="game">Dự án Game</option>
+                                    <option value="mobile">Dự án Mobile</option>
+                                    <option value="desktop">Dự án Desktop</option>
+                                    <option value="ai">Dự án AI</option>
+                                    <option value="other">Khác</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" id="subject" name="Tên dự án" placeholder="nhập tên dự án mà bạn muôn chia sẻ" required>
-                        <label for="subject">Dự án</label>
-                    </div>
-
-                    <div class="form-group">
-                        <select id="project-type" name="Loại dự án" required style="width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; background: white; transition: all 0.3s ease; outline: none;">
-                            <option value="">Dự án Web</option>
-                            <option value="new-website">Dự án Game</option>
-                            <option value="redesign">Dự án AI</option>
-                            <option value="ui-design">Dự án Mobile</option>
-                            <option value="maintenance">Dự án Desktop</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <label for="project-type">Loại dự án</label>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="number" id="budget" name="Ngân sách dự kiến" placeholder="nhập giá trị dự án mà bạn định hợp tác">
-                        <label for="budget">Giá trị dự án</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="message" name="Mô tả chi tiết dự án" rows="6" placeholder="Hãy kể cho tôi nghe về dự án của bạn!" required></textarea>
-                        <label for="message">Chi tiết về dự án</label>
-                    </div>
-                    
-                    <div class="form-checkbox" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;">
-                        <input type="checkbox" id="newsletter" name="Đăng ký nhận thông tin" style="width: 18px; height: 18px; accent-color: #4f46e5;">
-                        <label for="newsletter" style="color: #718096; font-size: 14px; cursor: pointer;">Tôi muốn nhận thông tin cập nhật về các dịch vụ và danh mục sản phẩm của bạn.</label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Gửi tin nhắn</button>
-                    
-                    <p style="color: #718096; font-size: 14px; text-align: center; margin-top: 1rem;">Tôi sẽ liên lạc lại với bạn trong vòng 24 giờ!</p>
-                </form>
+                        
+                        <div class="form-group-enhanced">
+                            <label for="subject"><i class="fas fa-tag"></i> Tên dự án</label>
+                            <input type="text" id="subject" name="Tên dự án" placeholder="Nhập tên dự án của bạn" required>
+                        </div>
+                        
+                        <div class="form-group-enhanced">
+                            <label for="budget"><i class="fas fa-dollar-sign"></i> Ngân sách dự kiến (VNĐ)</label>
+                            <input type="text" id="budget" name="Ngân sách dự kiến" placeholder="Ví dụ: 5.000.000 - 10.000.000">
+                        </div>
+                        
+                        <div class="form-group-enhanced">
+                            <label for="message"><i class="fas fa-comment-alt"></i> Mô tả chi tiết</label>
+                            <textarea id="message" name="Mô tả chi tiết dự án" rows="5" placeholder="Hãy kể cho tôi nghe về dự án của bạn, yêu cầu cụ thể, timeline mong muốn..." required></textarea>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="Đăng ký nhận thông tin">
+                            <label for="newsletter">Tôi muốn nhận thông tin cập nhật về dịch vụ và ưu đãi mới nhất.</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Gửi tin nhắn
+                        </button>
+                        
+                        <p class="form-note"><i class="fas fa-shield-alt"></i> Thông tin của bạn được bảo mật tuyệt đối</p>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 6rem 0;">
+    <section class="faq-section-enhanced">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label">Bạn nên hỏi tôi</span>
-                <h2 class="section-title">Nhưng câu hỏi Kinh điển</h2>
-                <p class="section-description">Câu hỏi khả quan nhất không lạc đề</p>
+            <div class="section-header" style="text-align: center;">
+                <span class="section-label"><i class="fas fa-question-circle"></i> FAQ</span>
+                <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+                <p class="section-description">Những câu hỏi về kiến thức lập trình Java cơ bản</p>
             </div>
-
-            <div class="faq-container" style="max-width: 800px; margin: 0 auto; margin-top: 3rem;">
-                <div class="faq-item" style="background: white; border-radius: 12px; padding: 2rem; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
-                    <h3 style="color: #1a202c; margin-bottom: 1rem;">OOP trong Java là gì?</h3>
-                    <p style="color: #718096; line-height: 1.7;">Là lập trình hướng đối tượng gồm 4 tính chất: Đóng gói, Kế thừa, Đa hình, Trừu tượng.</p>
+            
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <div class="faq-card-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>OOP trong Java là gì?</h3>
+                    <p>Là lập trình hướng đối tượng gồm 4 tính chất: Đóng gói (Encapsulation), Kế thừa (Inheritance), Đa hình (Polymorphism), Trừu tượng (Abstraction).</p>
                 </div>
-
-                <div class="faq-item" style="background: white; border-radius: 12px; padding: 2rem; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
-                    <h3 style="color: #1a202c; margin-bottom: 1rem;">Abstract class và interface khác nhau?</h3>
-                    <p style="color: #718096; line-height: 1.7;">abstract class có biến, constructor, method thường; interface chỉ có hằng và method abstract, Java cho đa kế thừa interface.</p>
+                
+                <div class="faq-card">
+                    <div class="faq-card-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Abstract class và Interface khác nhau?</h3>
+                    <p>Abstract class có biến, constructor, method thường; interface chỉ có hằng và method abstract. Java cho phép đa kế thừa interface.</p>
                 </div>
-
-                <div class="faq-item" style="background: white; border-radius: 12px; padding: 2rem; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
-                    <h3 style="color: #1a202c; margin-bottom: 1rem;">MVC là gì?</h3>
-                    <p style="color: #718096; line-height: 1.7;">Model dữ liệu, View giao diện, Controller xử lý</p>
+                
+                <div class="faq-card">
+                    <div class="faq-card-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>MVC là gì?</h3>
+                    <p>Model-View-Controller: Model quản lý dữ liệu, View hiển thị giao diện, Controller xử lý logic và điều phối.</p>
                 </div>
+                
+                <div class="faq-card">
+                    <div class="faq-card-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>@Autowired hoạt động như thế nào?</h3>
+                    <p>@Autowired giúp Spring tự động tìm bean phù hợp trong container và inject vào field, constructor hoặc setter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="faq-item" style="background: white; border-radius: 12px; padding: 2rem; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
-                    <h3 style="color: #1a202c; margin-bottom: 1rem;">@Autowired hoạt động như thế nào?</h3>
-                    <p style="color: #718096; line-height: 1.7;">@Autowired giúp Spring tự động tìm bean phù hợp trong container và inject vào field, constructor hoặc setter. Nếu có nhiều bean cùng type thì cần @Qualifier để chỉ rõ.</p>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2><i class="fas fa-comments"></i> Bạn có câu hỏi khác?</h2>
+                    <p>Đừng ngần ngại liên hệ, tôi luôn sẵn sàng hỗ trợ và giải đáp mọi thắc mắc của bạn!</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="mailto:minhphong26012006@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Gửi Email</a>
+                    <a href="index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Trang chủ</a>
                 </div>
             </div>
         </div>
@@ -217,64 +746,91 @@
                     <div class="logo">
                         <span class="logo-text">FUGA26</span>
                     </div>
-                    <p>Tương lai có tốt không là do bạn,học lập trình là 1 quá trình cố lên nhé!</p>
+                    <p>Tương lai có tốt không là do bạn. Học lập trình là một quá trình, cố lên nhé!</p>
                     <div class="social-links">
                         <a href="https://github.com/phongnmph62216" class="social-link" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
+                            <i class="fab fa-github"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/phong-nguyen-minh-aa163b335/" class="social-link" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="http://x.com/phong_minh2601" class="social-link" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/phong.nguyenminh.733450" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>Navigation</h4>
+                        <h4>Điều hướng</h4>
                         <ul>
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="about.html">Về Tôi</a></li>
-                            <li><a href="skills.html">Kỹ Năng</a></li>
-                            <li><a href="portfolio.html">Dự án</a></li>
-                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Trang chủ</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> Về Tôi</a></li>
+                            <li><a href="skills.html"><i class="fas fa-chevron-right"></i> Kỹ Năng</a></li>
+                            <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> Dự án</a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Liên hệ</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4>Services</h4>
+                        <h4>Dịch vụ</h4>
                         <ul>
-                            <li><a href="#">Thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Thiết kế Web</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Phát triển App</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Tư vấn IT</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Liên hệ</h4>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
+                            <li><i class="fas fa-envelope"></i> phongnm.62216@gmail.com</li>
+                            <li><i class="fas fa-phone"></i> +84 364 820 726</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 phong đẹp trai(AKA phong học lập trình).</p>
+                <p>&copy; 2025 FUGA26 - Minh Phong Dev. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
     <script src="script.js"></script>
     <script src="chatbot.js"></script>
-
-    <style>
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-    }
-    </style>
+    <script>
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Form success message
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === '1') {
+            alert('🎉 Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong vòng 24 giờ.');
+        }
+    </script>
 </body>
 </html>

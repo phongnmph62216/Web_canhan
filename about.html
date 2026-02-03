@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minh Phong Dev - About</title>
+    <title>Về Tôi - Minh Phong Developer | FUGA26</title>
+    <meta name="description" content="Tìm hiểu về Minh Phong - Web Developer đam mê với kỹ năng UI/UX và Frontend Development.">
     <link rel="stylesheet" href="styles_modern.css">
     <link rel="stylesheet" href="chatbot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -19,7 +21,7 @@
             </div>
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Trang chủ</a>
-                <a href="about.html" class="nav-link">Về tôi</a>
+                <a href="about.html" class="nav-link active">Về tôi</a>
                 <a href="skills.html" class="nav-link">Kỹ năng</a>
                 <a href="portfolio.html" class="nav-link">Dự án</a>
                 <a href="contact.html" class="nav-link contact-btn">Liên hệ</a>
@@ -32,80 +34,276 @@
         </div>
     </nav>
 
-    <!-- About Section -->
-    <section id="about" class="about-section" style="padding-top: 120px;">
+    <!-- Page Header -->
+    <section class="page-header" style="padding-top: 120px; padding-bottom: 60px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label">chi tiết về tôi</span>
-                <h2 class="section-title">Chi tiết</h2>
+            <div class="page-header-content" style="text-align: center;">
+                <span class="section-label">Giới thiệu</span>
+                <h1 class="section-title" style="font-size: 3rem;">Về Bản Thân Tôi</h1>
+                <p class="section-description">Khám phá hành trình và đam mê của tôi trong thế giới công nghệ</p>
+                <nav class="breadcrumb" style="margin-top: 2rem;">
+                    <a href="index.html" style="color: #4f46e5; text-decoration: none;">Trang chủ</a>
+                    <span style="margin: 0 0.5rem; color: #718096;">/</span>
+                    <span style="color: #718096;">Về tôi</span>
+                </nav>
             </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Tôi là Nguyễn Minh Phong, sinh năm 2006, hiện đang sinh sống và học tập tại Hà Nội. Tôi là sinh viên ngành Công nghệ Thông tin, với định hướng phát triển chuyên sâu trong lĩnh vực Web Development, đặc biệt là Frontend và UI/UX.</p>
-                    
-                    <p>Tôi bắt đầu tiếp xúc với lập trình web từ sớm và nhanh chóng bị cuốn hút bởi cách mà giao diện, màu sắc và trải nghiệm người dùng có thể tạo ra cảm xúc và giá trị thực sự cho người sử dụng. Từ những dòng HTML, CSS cơ bản ban đầu, tôi dần phát triển kỹ năng với JavaScript, các framework frontend và tư duy thiết kế giao diện lấy người dùng làm trung tâm.</p>
+        </div>
+    </section>
 
-                    <p>Hiện tại, tôi tập trung xây dựng nền tảng vững chắc về Frontend Web, đồng thời không ngừng mở rộng kiến thức để tiến xa hơn trong lĩnh vực phát triển web chuyên nghiệp. Mục tiêu của tôi là tạo ra những sản phẩm không chỉ đẹp về giao diện mà còn mượt mà, dễ sử dụng và có giá trị thực tế.</p>
-
-                    <p>Tôi tin rằng với sự kiên trì, tinh thần học hỏi và niềm đam mê công nghệ, tôi sẽ từng bước phát triển bản thân để trở thành một Web Developer chuyên nghiệp trong tương lai.</p>
-                    
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">1+</span>
-                            <span class="stat-label">Nhiều năm kinh nghiệm</span>
+    <!-- About Main Section -->
+    <section id="about" class="about-section" style="padding: 80px 0;">
+        <div class="container">
+            <div class="about-content" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center;">
+                <div class="about-image-section">
+                    <div class="about-image-wrapper" style="position: relative;">
+                        <img src="images/Gemini_Generated_Image_lqh73wlqh73wlqh7.png" alt="Minh Phong" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(79, 70, 229, 0.2);">
+                        <div class="experience-badge">
+                            <span class="exp-number">1+</span>
+                            <span class="exp-text">Năm<br>Kinh nghiệm</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">1+</span>
-                            <span class="stat-label">Các dự án đã hoàn thành</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Trải nhiệm người dùng</span>
-                        </div>
-                    </div>
-
-                    <div class="cta-section" style="margin-top: 3rem; text-align: center;">
-                        <p style="color: #718096; margin-bottom: 2rem;">bạn có muốn hợp tác?</p>
-                        <div class="hero-buttons">
-                            <a href="contact.html" class="btn btn-primary">Liên hệ với tôi</a>
-                            <a href="portfolio.html" class="btn btn-secondary">Dự án của tôi</a>
-                        </div>
+                        <div class="about-decoration" style="position: absolute; top: -20px; left: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; opacity: 0.1; z-index: -1;"></div>
                     </div>
                 </div>
                 
-                <div class="about-skills">
-                    <h3>tôi làm gì?</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-icon">🎨</div>
-                            <div>
-                                <h4>Thiết kế giao diện người dùng/trải nghiệm người dùng</h4>
-                                <p>Tạo ra các giao diện người dùng trực quan và hấp dẫn về mặt hình ảnh, giúp nâng cao trải nghiệm và sự tương tác của người dùng.</p>
-                            </div>
+                <div class="about-text">
+                    <h2 style="font-size: 2rem; color: #1a202c; margin-bottom: 1.5rem;">
+                        Xin chào! Tôi là <span style="color: #4f46e5;">Nguyễn Minh Phong</span>
+                    </h2>
+                    
+                    <p style="color: #718096; line-height: 1.8; margin-bottom: 1rem;">
+                        Sinh năm 2006, hiện đang sinh sống và học tập tại Hà Nội. Tôi là sinh viên ngành Công nghệ Thông tin, với định hướng phát triển chuyên sâu trong lĩnh vực <strong style="color: #4f46e5;">Web Development</strong>, đặc biệt là Frontend và UI/UX.
+                    </p>
+                    
+                    <p style="color: #718096; line-height: 1.8; margin-bottom: 1rem;">
+                        Tôi bắt đầu tiếp xúc với lập trình web từ sớm và nhanh chóng bị cuốn hút bởi cách mà giao diện, màu sắc và trải nghiệm người dùng có thể tạo ra cảm xúc và giá trị thực sự cho người sử dụng.
+                    </p>
+
+                    <p style="color: #718096; line-height: 1.8; margin-bottom: 2rem;">
+                        Mục tiêu của tôi là tạo ra những sản phẩm không chỉ đẹp về giao diện mà còn mượt mà, dễ sử dụng và có giá trị thực tế.
+                    </p>
+                    
+                    <!-- Personal Info -->
+                    <div class="personal-info" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                        <div class="info-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-user" style="color: #4f46e5; width: 20px;"></i>
+                            <span style="color: #4a5568;"><strong>Họ tên:</strong> Nguyễn Minh Phong</span>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">💻</div>
-                            <div>
-                                <h4>Phát triển giao diện người dùng</h4>
-                                <p>Xây dựng các ứng dụng web tương tác và có khả năng thích ứng cao bằng cách sử dụng các công nghệ và framework hiện đại.</p>
-                            </div>
+                        <div class="info-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-birthday-cake" style="color: #4f46e5; width: 20px;"></i>
+                            <span style="color: #4a5568;"><strong>Sinh năm:</strong> 2006</span>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">📱</div>
-                            <div>
-                                <h4>Thiết kế đáp ứng</h4>
-                                <p>Đảm bảo trải nghiệm tuyệt vời trên mọi thiết bị, từ máy tính để bàn đến thiết bị di động, với độ chính xác hoàn hảo đến từng pixel.</p>
-                            </div>
+                        <div class="info-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-map-marker-alt" style="color: #4f46e5; width: 20px;"></i>
+                            <span style="color: #4a5568;"><strong>Địa chỉ:</strong> Hà Nội, Việt Nam</span>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">⚡</div>
-                            <div>
-                                <h4>Tối ưu hóa hiệu năng</h4>
-                                <p>Tối ưu hóa tốc độ và hiệu năng website để mang lại trải nghiệm người dùng tốt nhất có thể.</p>
-                            </div>
+                        <div class="info-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-envelope" style="color: #4f46e5; width: 20px;"></i>
+                            <span style="color: #4a5568;"><strong>Email:</strong> minhphong26012006@gmail.com</span>
                         </div>
                     </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Liên hệ với tôi
+                        </a>
+                        <a href="images/Nguyen-Minh-Phong-TopCV.vn-040226.10826.pdf" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-eye"></i> Xem CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-number">1+</div>
+                    <div class="stat-label">Năm kinh nghiệm</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Dự án hoàn thành</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Công nghệ sử dụng</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Đam mê công nghệ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section class="services-section" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Dịch vụ của tôi</span>
+                <h2 class="section-title">Tôi Làm Gì?</h2>
+                <p class="section-description">Những dịch vụ và kỹ năng chuyên môn mà tôi cung cấp</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Thiết kế UI/UX</h3>
+                    <p>Tạo ra các giao diện người dùng trực quan và hấp dẫn về mặt hình ảnh, giúp nâng cao trải nghiệm và sự tương tác của người dùng.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Wireframe & Mockup</li>
+                        <li><i class="fas fa-check"></i> User Interface Design</li>
+                        <li><i class="fas fa-check"></i> Prototyping</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card featured">
+                    <div class="featured-badge">Chuyên môn</div>
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Phát triển Frontend</h3>
+                    <p>Xây dựng các ứng dụng web tương tác và có khả năng thích ứng cao bằng cách sử dụng các công nghệ và framework hiện đại.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> HTML5, CSS3, JavaScript</li>
+                        <li><i class="fas fa-check"></i> Vue.js, React</li>
+                        <li><i class="fas fa-check"></i> Bootstrap, Tailwind</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Đảm bảo trải nghiệm tuyệt vời trên mọi thiết bị, từ máy tính để bàn đến thiết bị di động, với độ chính xác hoàn hảo.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Mobile First</li>
+                        <li><i class="fas fa-check"></i> Cross-browser</li>
+                        <li><i class="fas fa-check"></i> Pixel Perfect</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey/Timeline Section -->
+    <section class="timeline-section" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Hành trình</span>
+                <h2 class="section-title">Học Vấn & Kinh Nghiệm</h2>
+            </div>
+            
+            <div class="timeline" style="position: relative; max-width: 800px; margin: 0 auto;">
+                <div class="timeline-line" style="position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(180deg, #4f46e5, #7c3aed);"></div>
+                
+                <div class="timeline-item" style="display: flex; justify-content: flex-end; padding-right: 50%; margin-bottom: 3rem; position: relative;">
+                    <div class="timeline-content" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 350px; margin-right: 30px;">
+                        <div class="timeline-dot" style="position: absolute; right: calc(50% - 10px); top: 20px; width: 20px; height: 20px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px #4f46e5;"></div>
+                        <span style="color: #4f46e5; font-weight: 600; font-size: 14px;">2024 - Hiện tại</span>
+                        <h3 style="color: #1a202c; margin: 0.5rem 0;">Sinh viên CNTT</h3>
+                        <p style="color: #718096; font-size: 14px; margin: 0;">Đang học tập và phát triển kỹ năng về Web Development tại trường</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" style="display: flex; justify-content: flex-start; padding-left: 50%; margin-bottom: 3rem; position: relative;">
+                    <div class="timeline-content" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 350px; margin-left: 30px;">
+                        <div class="timeline-dot" style="position: absolute; left: calc(50% - 10px); top: 20px; width: 20px; height: 20px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px #7c3aed;"></div>
+                        <span style="color: #7c3aed; font-weight: 600; font-size: 14px;">2023</span>
+                        <h3 style="color: #1a202c; margin: 0.5rem 0;">Bắt đầu học lập trình</h3>
+                        <p style="color: #718096; font-size: 14px; margin: 0;">Tiếp xúc với HTML, CSS và JavaScript cơ bản</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" style="display: flex; justify-content: flex-end; padding-right: 50%; position: relative;">
+                    <div class="timeline-content" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 350px; margin-right: 30px;">
+                        <div class="timeline-dot" style="position: absolute; right: calc(50% - 10px); top: 20px; width: 20px; height: 20px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px #ec4899;"></div>
+                        <span style="color: #ec4899; font-weight: 600; font-size: 14px;">2022</span>
+                        <h3 style="color: #1a202c; margin: 0.5rem 0;">Đam mê công nghệ</h3>
+                        <p style="color: #718096; font-size: 14px; margin: 0;">Khám phá niềm đam mê với thiết kế và công nghệ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section style="padding: 80px 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Sở thích</span>
+                <h2 class="section-title">Ngoài Công Việc</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem;">
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(124,58,237,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-gamepad" style="font-size: 2rem; color: #4f46e5;"></i>
+                    </div>
+                    <h4 style="color: #1a202c; margin-bottom: 0.5rem;">Gaming</h4>
+                    <p style="color: #718096; font-size: 14px;">Chơi game giải trí</p>
+                </div>
+                
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(124,58,237,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-music" style="font-size: 2rem; color: #7c3aed;"></i>
+                    </div>
+                    <h4 style="color: #1a202c; margin-bottom: 0.5rem;">Âm nhạc</h4>
+                    <p style="color: #718096; font-size: 14px;">Nghe nhạc thư giãn</p>
+                </div>
+                
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(124,58,237,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-book" style="font-size: 2rem; color: #ec4899;"></i>
+                    </div>
+                    <h4 style="color: #1a202c; margin-bottom: 0.5rem;">Đọc sách</h4>
+                    <p style="color: #718096; font-size: 14px;">Sách công nghệ & phát triển bản thân</p>
+                </div>
+                
+                <div style="text-align: center; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(124,58,237,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-film" style="font-size: 2rem; color: #10b981;"></i>
+                    </div>
+                    <h4 style="color: #1a202c; margin-bottom: 0.5rem;">Phim ảnh</h4>
+                    <p style="color: #718096; font-size: 14px;">Xem phim công nghệ & khoa học viễn tưởng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Bạn muốn hợp tác cùng tôi?</h2>
+                    <p>Hãy liên hệ ngay để thảo luận về dự án của bạn. Tôi luôn sẵn sàng lắng nghe và hỗ trợ!</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-light">
+                        <i class="fas fa-envelope"></i> Liên hệ ngay
+                    </a>
+                    <a href="portfolio.html" class="btn btn-outline-light">
+                        <i class="fas fa-briefcase"></i> Xem dự án
+                    </a>
                 </div>
             </div>
         </div>
@@ -119,7 +317,7 @@
                     <div class="logo">
                         <span class="logo-text">FUGA26</span>
                     </div>
-                    <p>Tương lai có tốt không là do bạn,học lập trình là 1 quá trình cố lên nhé!</p>
+                    <p>Đam mê công nghệ, tạo ra những trải nghiệm web tuyệt vời. Hãy cùng nhau xây dựng tương lai số!</p>
                     <div class="social-links">
                         <a href="https://github.com/phongnmph62216" class="social-link" aria-label="GitHub">
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -141,35 +339,69 @@
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>Navigation</h4>
+                        <h4>Điều hướng</h4>
                         <ul>
                             <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="about.html">Về Tôi</a></li>
-                            <li><a href="skills.html">Kỹ Năng</a></li>
+                            <li><a href="about.html">Về tôi</a></li>
+                            <li><a href="skills.html">Kỹ năng</a></li>
                             <li><a href="portfolio.html">Dự án</a></li>
                             <li><a href="contact.html">Liên hệ</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4>Services</h4>
+                        <h4>Dịch vụ</h4>
                         <ul>
-                            <li><a href="#">Thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
-                            <li><a href="#">thiết kế</a></li>
+                            <li><a href="#">Thiết kế UI/UX</a></li>
+                            <li><a href="#">Phát triển Web</a></li>
+                            <li><a href="#">Responsive Design</a></li>
+                            <li><a href="#">Tối ưu SEO</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Liên hệ</h4>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> minhphong26012006@gmail.com</li>
+                            <li><i class="fas fa-phone"></i> 0364 820 726</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 phong đẹp trai(AKA phong học lập trình).</p>
+                <p>&copy; 2024 FUGA26 - Minh Phong. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="#">Điều khoản sử dụng</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="script.js"></script>
     <script src="chatbot.js"></script>
+    <script>
+        // Back to Top
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

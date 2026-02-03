@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nguyễn Minh Phong | Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Print Button */
+        .print-actions {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .print-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+        }
+        
+        .print-btn.secondary {
+            background: #64748b;
+        }
+        
+        /* CV Container */
+        .cv-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        /* Header Section */
+        .cv-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .cv-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        .cv-title h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .cv-title h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #a5b4fc;
+            margin-bottom: 20px;
+        }
+        
+        .cv-contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .cv-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
+        
+        .cv-contact-item i {
+            color: #818cf8;
+            width: 16px;
+        }
+        
+        /* Main Content */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+        }
+        
+        .cv-main {
+            padding: 40px;
+        }
+        
+        .cv-sidebar {
+            background: #f8fafc;
+            padding: 40px 30px;
+            border-left: 1px solid #e2e8f0;
+        }
+        
+        /* Section Styles */
+        .cv-section {
+            margin-bottom: 35px;
+        }
+        
+        .cv-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .cv-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a202c;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4f46e5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cv-section-title i {
+            color: #4f46e5;
+        }
+        
+        /* About */
+        .cv-about {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        /* Experience & Education */
+        .cv-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .cv-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #4f46e5;
+            border-radius: 50%;
+        }
+        
+        .cv-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .cv-item-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+        
+        .cv-item-date {
+            font-size: 0.85rem;
+            color: #4f46e5;
+            font-weight: 600;
+            background: #e0e7ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        .cv-item-company {
+            font-size: 0.95rem;
+            color: #4f46e5;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .cv-item-description {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        .cv-item-description ul {
+            margin-top: 8px;
+            padding-left: 18px;
+        }
+        
+        .cv-item-description li {
+            margin-bottom: 4px;
+        }
+        
+        /* Skills */
+        .cv-skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .cv-skill {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .cv-skill-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #374151;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .cv-skill-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .cv-skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border-radius: 10px;
+        }
+        
+        /* Languages */
+        .cv-language {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .cv-language:last-child {
+            border-bottom: none;
+        }
+        
+        .cv-language-name {
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .cv-language-level {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        /* Interests */
+        .cv-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .cv-interest-tag {
+            padding: 8px 16px;
+            background: #e0e7ff;
+            color: #4f46e5;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Social Links */
+        .cv-social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .cv-social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .cv-social-link:hover {
+            color: #4f46e5;
+        }
+        
+        .cv-social-link i {
+            width: 32px;
+            height: 32px;
+            background: #e0e7ff;
+            color: #4f46e5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .print-actions {
+                display: none !important;
+            }
+            
+            .cv-container {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            
+            .cv-header {
+                padding: 30px 40px;
+            }
+            
+            .cv-body {
+                grid-template-columns: 1fr 250px;
+            }
+            
+            .cv-main {
+                padding: 30px;
+            }
+            
+            .cv-sidebar {
+                padding: 30px 20px;
+            }
+            
+            .cv-section {
+                margin-bottom: 25px;
+            }
+            
+            .cv-item {
+                margin-bottom: 20px;
+            }
+            
+            @page {
+                margin: 0;
+                size: A4;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cv-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 30px;
+            }
+            
+            .cv-photo {
+                margin: 0 auto;
+            }
+            
+            .cv-contact-row {
+                justify-content: center;
+            }
+            
+            .cv-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .cv-sidebar {
+                border-left: none;
+                border-top: 1px solid #e2e8f0;
+            }
+            
+            .print-actions {
+                position: static;
+                justify-content: center;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Print Actions -->
+    <div class="print-actions">
+        <button class="print-btn" onclick="window.print()">
+            <i class="fas fa-download"></i> Tải PDF
+        </button>
+        <a href="index.html" class="print-btn secondary">
+            <i class="fas fa-arrow-left"></i> Quay lại
+        </a>
+    </div>
+
+    <!-- CV Container -->
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="cv-header">
+            <div class="cv-photo">MP</div>
+            <div class="cv-title">
+                <h1>NGUYỄN MINH PHONG</h1>
+                <h2>Web Developer & Software Engineer</h2>
+                <div class="cv-contact-row">
+                    <div class="cv-contact-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>26/01/2006</span>
+                    </div>
+                    <div class="cv-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Phượng Dực, Hà Nội</span>
+                    </div>
+                    <div class="cv-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0364 820 726</span>
+                    </div>
+                    <div class="cv-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>minhphong26012006@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Body -->
+        <div class="cv-body">
+            <!-- Main Content -->
+            <div class="cv-main">
+                <!-- About -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-user"></i> Giới Thiệu</h3>
+                    <p class="cv-about">
+                        Tôi là sinh viên đam mê lập trình với kinh nghiệm trong phát triển web và ứng dụng. 
+                        Có khả năng làm việc độc lập và theo nhóm, luôn sẵn sàng học hỏi công nghệ mới. 
+                        Mục tiêu trở thành Full-stack Developer chuyên nghiệp và đóng góp vào các dự án có ý nghĩa.
+                    </p>
+                </div>
+                
+                <!-- Education -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-graduation-cap"></i> Học Vấn</h3>
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div class="cv-item-title">Cao Đẳng FPT Polytechnic</div>
+                            <div class="cv-item-date">2024 - 2027</div>
+                        </div>
+                        <div class="cv-item-company">Chuyên ngành: Công nghệ thông tin</div>
+                        <div class="cv-item-description">
+                            <ul>
+                                <li>Học lập trình Java, C#, Web Development</li>
+                                <li>Tham gia các dự án thực tế</li>
+                                <li>GPA: 3.5/4.0</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div class="cv-item-title">THPT Phượng Dực</div>
+                            <div class="cv-item-date">2021 - 2024</div>
+                        </div>
+                        <div class="cv-item-description">
+                            Tốt nghiệp loại Khá, tự học lập trình cơ bản từ năm lớp 11.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-briefcase"></i> Kinh Nghiệm</h3>
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div class="cv-item-title">Dự Án Quản Lý Bán Hàng</div>
+                            <div class="cv-item-date">2024</div>
+                        </div>
+                        <div class="cv-item-company">Dự án cá nhân - Java Swing</div>
+                        <div class="cv-item-description">
+                            <ul>
+                                <li>Xây dựng hệ thống quản lý bán hàng hoàn chỉnh</li>
+                                <li>Sử dụng Java Swing cho giao diện, SQL Server cho database</li>
+                                <li>Tích hợp xuất báo cáo, in hóa đơn QR Code</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div class="cv-item-title">Website Portfolio Cá Nhân</div>
+                            <div class="cv-item-date">2024</div>
+                        </div>
+                        <div class="cv-item-company">Dự án cá nhân - HTML/CSS/JS</div>
+                        <div class="cv-item-description">
+                            <ul>
+                                <li>Thiết kế và phát triển website portfolio hiện đại</li>
+                                <li>Responsive design, animations, dark mode</li>
+                                <li>Tích hợp form liên hệ và chatbot</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projects -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-code"></i> Dự Án Nổi Bật</h3>
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div class="cv-item-title">Website E-commerce</div>
+                            <div class="cv-item-date">Web</div>
+                        </div>
+                        <div class="cv-item-description">
+                            Trang web bán quần áo với đầy đủ tính năng giỏ hàng, thanh toán, quản lý sản phẩm.
+                            <br><strong>Tech:</strong> HTML, CSS, JavaScript, Vue.js
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div class="cv-item-title">Ứng Dụng Quản Lý Công Việc</div>
+                            <div class="cv-item-date">Mobile</div>
+                        </div>
+                        <div class="cv-item-description">
+                            App mobile giúp quản lý công việc hàng ngày với giao diện thân thiện.
+                            <br><strong>Tech:</strong> React Native, Firebase
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="cv-sidebar">
+                <!-- Skills -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-cogs"></i> Kỹ Năng</h3>
+                    <div class="cv-skills-grid">
+                        <div class="cv-skill">
+                            <div class="cv-skill-name">
+                                <span>Java</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="cv-skill-bar">
+                                <div class="cv-skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="cv-skill">
+                            <div class="cv-skill-name">
+                                <span>HTML/CSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="cv-skill-bar">
+                                <div class="cv-skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="cv-skill">
+                            <div class="cv-skill-name">
+                                <span>JavaScript</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="cv-skill-bar">
+                                <div class="cv-skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="cv-skill">
+                            <div class="cv-skill-name">
+                                <span>SQL Server</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="cv-skill-bar">
+                                <div class="cv-skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="cv-skill">
+                            <div class="cv-skill-name">
+                                <span>React/Vue</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="cv-skill-bar">
+                                <div class="cv-skill-progress" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="cv-skill">
+                            <div class="cv-skill-name">
+                                <span>Git/GitHub</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="cv-skill-bar">
+                                <div class="cv-skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Languages -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-language"></i> Ngôn Ngữ</h3>
+                    <div class="cv-language">
+                        <span class="cv-language-name">Tiếng Việt</span>
+                        <span class="cv-language-level">Bản ngữ</span>
+                    </div>
+                    <div class="cv-language">
+                        <span class="cv-language-name">Tiếng Anh</span>
+                        <span class="cv-language-level">Đọc hiểu tài liệu</span>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-link"></i> Liên Kết</h3>
+                    <div class="cv-social-links">
+                        <a href="https://github.com/phongnmph62216" class="cv-social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/phongnmph62216</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/phong-nguyen-minh-aa163b335/" class="cv-social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="http://x.com/phong_minh2601" class="cv-social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                            <span>@phong_minh2601</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Interests -->
+                <div class="cv-section">
+                    <h3 class="cv-section-title"><i class="fas fa-heart"></i> Sở Thích</h3>
+                    <div class="cv-interests">
+                        <span class="cv-interest-tag">🎮 Gaming</span>
+                        <span class="cv-interest-tag">🎵 Âm nhạc</span>
+                        <span class="cv-interest-tag">📚 Đọc sách</span>
+                        <span class="cv-interest-tag">💻 Coding</span>
+                        <span class="cv-interest-tag">🎬 Phim ảnh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth print experience
+        window.addEventListener('beforeprint', () => {
+            document.body.style.background = 'white';
+        });
+        
+        window.addEventListener('afterprint', () => {
+            document.body.style.background = '#f0f2f5';
+        });
+    </script>
+</body>
+</html>
