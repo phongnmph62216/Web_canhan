@@ -462,6 +462,108 @@
                 transform: scale(1.1);
             }
         }
+        
+        /* Success Modal Styles */
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .success-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .success-modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 450px;
+            margin: 1rem;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+        }
+        
+        .success-modal.show .success-modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: successPulse 2s infinite;
+        }
+        
+        .success-icon i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        @keyframes successPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
+            }
+        }
+        
+        .success-modal-content h2 {
+            color: #1a202c;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .success-modal-content p {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .success-modal-content p strong {
+            color: #4f46e5;
+        }
+        
+        .success-btn {
+            margin-top: 1.5rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+        }
+        
+        .success-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+        }
     </style>
 </head>
 <body>
@@ -606,6 +708,7 @@
                     
                     <form action="https://formsubmit.co/minhphong26012006@gmail.com" method="POST">
                         <input type="hidden" name="_subject" value="🚀 Dự án mới từ Website Portfolio - Minh Phong Dev">
+                        <input type="hidden" name="_next" value="https://phongdev-webcanhan.netlify.app/contact.html?success=1">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_autoresponse" value="Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong vòng 24 giờ. - Minh Phong Developer">
@@ -822,10 +925,38 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // Form success message
+        // Form success message - Show beautiful popup
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('success') === '1') {
-            alert('🎉 Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong vòng 24 giờ.');
+            // Create success modal
+            const modal = document.createElement('div');
+            modal.className = 'success-modal';
+            modal.innerHTML = `
+                <div class="success-modal-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Gửi tin nhắn thành công! 🎉</h2>
+                    <p>Cảm ơn bạn đã liên hệ với tôi.</p>
+                    <p>Tôi sẽ phản hồi trong vòng <strong>24 giờ</strong>.</p>
+                    <button class="success-btn" onclick="closeSuccessModal()">Đã hiểu</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Show modal with animation
+            setTimeout(() => modal.classList.add('show'), 100);
+            
+            // Remove success param from URL without reload
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+        
+        function closeSuccessModal() {
+            const modal = document.querySelector('.success-modal');
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.remove(), 300);
+            }
         }
     </script>
 </body>
